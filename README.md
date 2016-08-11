@@ -5,8 +5,17 @@ AuthPort is an authentication library for node.js. It unifies authentication API
 
 AuthPort was designed to solve one problem and solve it well. It has an intuitive node.js-like API, no required dependencies, and doesn't force any particular persistence, session, or middleware approaches on you.
 
+Installation
+----------------------
+
+To install, enter:
+
+    $ npm install authport
+
 Example
 -------
+
+    $ npm install --save auth-port
 
 For the built-in node.js HTTP module:
 
@@ -114,12 +123,6 @@ Supported services
 
 <img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/ninjablocks.ico" style="vertical-align:middle"> Ninja Blocks (by [thatguydan](https://github.com/thatguydan))
 
-Installation and Setup
-----------------------
-
-To install, enter:
-
-    $ npm install authport
 
 FAQ
 ---
