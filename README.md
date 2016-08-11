@@ -1,9 +1,9 @@
-authom
+AuthPort
 =======
 
-authom is an authentication library for node.js. It unifies authentication APIs for multiple services into a single EventEmitter, and works with both the built-in node.js HTTP module and as an Express/Connect app.
+AuthPort is an authentication library for node.js. It unifies authentication APIs for multiple services into a single EventEmitter, and works with both the built-in node.js HTTP module and as an Express/Connect app.
 
-authom was designed to solve one problem and solve it well. It has an intuitive node.js-like API, no required dependencies, and doesn't force any particular persistence, session, or middleware approaches on you.
+AuthPort was designed to solve one problem and solve it well. It has an intuitive node.js-like API, no required dependencies, and doesn't force any particular persistence, session, or middleware approaches on you.
 
 Example
 -------
@@ -11,32 +11,32 @@ Example
 For the built-in node.js HTTP module:
 
 ```javascript
-// Like socket.io, authom will intercept requests
+// Like socket.io, AuthPort will intercept requests
 // for you to help keep your routes clean.
 
 var server = require("http").createServer()
-  , authom = require("authom")
+  , AuthPort = require("authport")
 
 server.on("request", function() {
   // your usual server logic
 })
 
 // create servers for the services you'll be using
-authom.createServer({ /* facebook credentials */ })
-authom.createServer({ /* github credentials */ })
-authom.createServer({ /* google credentials */ })
-authom.createServer({ /* twitter credentials */ })
+AuthPort.createServer({ /* facebook credentials */ })
+AuthPort.createServer({ /* github credentials */ })
+AuthPort.createServer({ /* google credentials */ })
+AuthPort.createServer({ /* twitter credentials */ })
 // ... et cetera
 
-authom.on("auth", function(req, res, data) {
+AuthPort.on("auth", function(req, res, data) {
   // called when a user is authenticated on any service
 })
 
-authom.on("error", function(req, res, data) {
+AuthPort.on("error", function(req, res, data) {
   // called when an error occurs during authentication
 })
 
-authom.listen(server)
+AuthPort.listen(server)
 server.listen(8000)
 ```
 
@@ -45,24 +45,24 @@ For Express/Connect:
 ```javascript
 var express = require("express")
   , app = express()
-  , authom = require("authom")
+  , AuthPort = require("authpoint")
 
 // create servers for the services you'll be using
-authom.createServer({ /* facebook credentials */ })
-authom.createServer({ /* github credentials */ })
-authom.createServer({ /* google credentials */ })
-authom.createServer({ /* twitter credentials */ })
+AuthPort.createServer({ /* facebook credentials */ })
+AuthPort.createServer({ /* github credentials */ })
+AuthPort.createServer({ /* google credentials */ })
+AuthPort.createServer({ /* twitter credentials */ })
 // ... et cetera
 
-authom.on("auth", function(req, res, data) {
+AuthPort.on("auth", function(req, res, data) {
   // called when a user is authenticated on any service
 })
 
-authom.on("error", function(req, res, data) {
+AuthPort.on("error", function(req, res, data) {
   // called when an error occurs during authentication
 })
 
-app.get("/auth/:service", authom.app)
+app.get("/auth/:service", AuthPort.app)
 
 app.listen(8000)
 ```
@@ -70,87 +70,81 @@ app.listen(8000)
 Supported services
 ------------------
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/37signals.ico" style="vertical-align:middle"> 37signals (by [nodebiscut](https://github.com/nodebiscut))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/37signals.ico" style="vertical-align:middle"> 37signals (by [nodebiscut](https://github.com/nodebiscut))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/bitbucket.png" style="vertical-align:middle" width="16" height="16"> Bitbucket (by [aslakhellesoy](https://github.com/aslakhellesoy))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/bitbucket.png" style="vertical-align:middle" width="16" height="16"> Bitbucket (by [aslakhellesoy](https://github.com/aslakhellesoy))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/dropbox.ico" style="vertical-align:middle"> Dropbox (by [cartuchogl](https://github.com/cartuchogl))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/dropbox.ico" style="vertical-align:middle"> Dropbox (by [cartuchogl](https://github.com/cartuchogl))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/dwolla.ico" style="vertical-align:middle"> Dwolla (by [nodebiscut](https://github.com/nodebiscut))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/dwolla.ico" style="vertical-align:middle"> Dwolla (by [nodebiscut](https://github.com/nodebiscut))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/facebook.ico" style="vertical-align:middle"> Facebook (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/facebook.ico" style="vertical-align:middle"> Facebook (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/fitbit.ico" style="vertical-align:middle"> Fitbit (by [pspeter3](https://github.com/pspeter3))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/fitbit.ico" style="vertical-align:middle"> Fitbit (by [pspeter3](https://github.com/pspeter3))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/foodspotting.ico" style="vertical-align:middle"> Foodspotting (by [kimtaro](https://github.com/kimtaro))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/foodspotting.ico" style="vertical-align:middle"> Foodspotting (by [kimtaro](https://github.com/kimtaro))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/foursquare.ico" style="vertical-align:middle"> Foursquare (by [nodebiscut](https://github.com/nodebiscut))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/foursquare.ico" style="vertical-align:middle"> Foursquare (by [nodebiscut](https://github.com/nodebiscut))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/github.ico" style="vertical-align:middle"> GitHub (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/github.ico" style="vertical-align:middle"> GitHub (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/google.ico" style="vertical-align:middle"> Google (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/google.ico" style="vertical-align:middle"> Google (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/gowalla.ico" style="vertical-align:middle"> Gowalla (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/gowalla.ico" style="vertical-align:middle"> Gowalla (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/instagram.ico" style="vertical-align:middle"> Instagram (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/instagram.ico" style="vertical-align:middle"> Instagram (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/linkedin.ico" style="vertical-align:middle"> LinkedIn (by [shinecita](https://github.com/shinecita))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/linkedin.ico" style="vertical-align:middle"> LinkedIn (by [shinecita](https://github.com/shinecita))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/meetup.ico" style="vertical-align:middle"> Meetup (by [softprops](https://github.com/softprops))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/meetup.ico" style="vertical-align:middle"> Meetup (by [softprops](https://github.com/softprops))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/reddit.png" style="vertical-align:middle"> Reddit (by [avidw](https://github.com/avidw))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/reddit.png" style="vertical-align:middle"> Reddit (by [avidw](https://github.com/avidw))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/soundcloud.ico" style="vertical-align:middle"> SoundCloud (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/soundcloud.ico" style="vertical-align:middle"> SoundCloud (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/stripe.ico" style="vertical-align:middle"> Stripe Connect (by [recipher](https://github.com/recipher))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/stripe.ico" style="vertical-align:middle"> Stripe Connect (by [recipher](https://github.com/recipher))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/trello.ico" style="vertical-align:middle"> Trello (by [falexandrou](https://github.com/falexandrou))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/trello.ico" style="vertical-align:middle"> Trello (by [falexandrou](https://github.com/falexandrou))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/twitter.ico" style="vertical-align:middle"> Twitter (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/twitter.ico" style="vertical-align:middle"> Twitter (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/vkontakte.ico" style="vertical-align:middle"> Vkontakte (by [molforp](https://github.com/molforp))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/vkontakte.ico" style="vertical-align:middle"> Vkontakte (by [molforp](https://github.com/molforp))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/windowslive.ico" style="vertical-align:middle"> Windows Live (by [jed](https://github.com/jed))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/windowslive.ico" style="vertical-align:middle"> Windows Live (by [jed](https://github.com/jed))
 
-<img src="https://raw.githubusercontent.com/jed/authom/master/lib/assets/ninjablocks.ico" style="vertical-align:middle"> Ninja Blocks (by [thatguydan](https://github.com/thatguydan))
+<img src="https://raw.githubusercontent.com/mindeavor/authport/master/lib/assets/ninjablocks.ico" style="vertical-align:middle"> Ninja Blocks (by [thatguydan](https://github.com/thatguydan))
 
 Installation and Setup
 ----------------------
 
 To install, enter:
 
-    $ npm install authom
-
-To see the demo, enter:
-
-    $ npm start authom
-
-And then head to http://authom.jedschmidt.com (which resolves to your local machine at `127.0.0.1`). `sudo` is needed to bind to port 80, as many providers do not allow callback URLs with a port or `localhost` as the host.
+    $ npm install authport
 
 FAQ
 ---
 
 ### How can I add my own service?
 
-See **Extending authom** below.
+See **Extending AuthPort** below.
 
-### Why not just use [everyauth](https://github.com/bnoguchi/everyauth)/[passport](https://github.com/jaredhanson/passport)? How is authom different?
+### Why not just use [everyauth](https://github.com/bnoguchi/everyauth)/[passport](https://github.com/jaredhanson/passport)? How is AuthPort different?
 
-authom aims to solve a smaller problem, more agnostically. It trades convenience for simplicity and flexibility. Here are some key differences:
+AuthPort aims to solve a smaller problem, more agnostically. It trades convenience for simplicity and flexibility. Here are some key differences:
 
-- authom was built for node, and can also work with Express, while everyauth is tied to Express and Connect. everyauth aims for a much more ambitious integration, but at the expense of locking you into a particular stack. authom takes a more UNIX approach; since it doesn't handle logins, persistence, sessions, or anything past authentication, it is more of a tool and less of a framework.
+- AuthPort was built for node, and can also work with Express, while everyauth is tied to Express and Connect. everyauth aims for a much more ambitious integration, but at the expense of locking you into a particular stack. AuthPort takes a more UNIX approach; since it doesn't handle logins, persistence, sessions, or anything past authentication, it is more of a tool and less of a framework.
 
-- authom uses native node.js conventions such as EventEmitters and objects, while everyauth uses promises and a chaining config API. This is of course subjective, but the authom API aims to be closer to the APIs of node.js itself.
+- AuthPort uses native node.js conventions such as EventEmitters and objects, while everyauth uses promises and a chaining config API. This is of course subjective, but the AuthPort API aims to be closer to the APIs of node.js itself.
 
 API
 ---
 
-### authom.createServer(options, [function(req, res){}])
+### AuthPort.createServer(options, [function(req, res){}])
 
 Creates an EventEmitter for the given authentication service. The service is specified by the `service` key of the `options` object, with all other keys differing based on the service. For example, `github` would be called like this:
 
 ```javascript
-var github = authom.createServer({
+var github = AuthPort.createServer({
   service: "github",
   id: "7e38d12b740a339b2d31",
   secret: "116e41bd4cd160b7fae2fe8cc79c136a884928c3",
@@ -158,12 +152,12 @@ var github = authom.createServer({
 })
 ```
 
-An optional `name` member can also be passed to override that used for authom path matching. So if you had two GitHub apps, you could set them as `name: github1` and `name: github2`, so that they could be accessed as `/auth/github1` and `/auth/github2`.
+An optional `name` member can also be passed to override that used for AuthPort path matching. So if you had two GitHub apps, you could set them as `name: github1` and `name: github2`, so that they could be accessed as `/auth/github1` and `/auth/github2`.
 
 You can listen for `auth` and `error` events by:
 
 - listening to a specific service for service-specific events, or
-- listening to `authom` for all service events
+- listening to `AuthPort` for all service events
 
 For example, use this to listen for events from GitHub, based on the code above:
 
@@ -172,14 +166,14 @@ github.on("auth", function(req, res, gitHubSpecificData){})
 github.on("error", function(req, res, gitHubSpecificData){})
 ```
 
-Or, use this to listen to events from all provders, since authom already listens and namespaces them for you:
+Or, use this to listen to events from all provders, since AuthPort already listens and namespaces them for you:
 
 ```javascript
-authom.on("auth", function(req, res, data){})
-authom.on("error", function(req, res, data){})
+AuthPort.on("auth", function(req, res, data){})
+AuthPort.on("error", function(req, res, data){})
 ```
 
-### authom.on("auth", function(req, res, data){})
+### AuthPort.on("auth", function(req, res, data){})
 
 Listens for successful authentications across all services. The listener is called with the original request/response objects as well as a service-specific user object, which contains the following keys:
 
@@ -190,7 +184,7 @@ Listens for successful authentications across all services. The listener is call
 - `service`: the name of the service, given so that you can branch your code:
 
 ```javascript
-authom.on("auth", function(req, res, data) {
+AuthPort.on("auth", function(req, res, data) {
   switch(data.service) {
     case "github": ...
     case "google": ...
@@ -201,38 +195,38 @@ authom.on("auth", function(req, res, data) {
 })
 ```
 
-### authom.on("error", function(req, res, data){})
+### AuthPort.on("error", function(req, res, data){})
 
 Listens for failed authentications across all services. Like the `auth` event, the listener is called with the original request/response objects as well as an error object, allowing you to provide your own session scheme.
 
-### authom.listen(server)
+### AuthPort.listen(server)
 
-Listens to an existing HTTP(S) server for `request` events. Like socket.io's `.listen` method, authom will intercept any request whose path starts with `/auth`.
+Listens to an existing HTTP(S) server for `request` events. Like socket.io's `.listen` method, AuthPort will intercept any request whose path starts with `/auth`.
 
-### authom.listener
+### AuthPort.listener
 
-A standard node.js listener. This can be used for more control over the path at which authom is used. For example, the following two are equivalent:
+A standard node.js listener. This can be used for more control over the path at which AuthPort is used. For example, the following two are equivalent:
 
 ```javascript
 // socket.io-style
 var server = require("http").createServer()
-  , authom = require("authom")
+  , AuthPort = require("authpoint")
 
 server.on("request", function() {
   /* your usual server logic */
 })
 
-authom.listen(server)
+AuthPort.listen(server)
 server.listen(8000)
 ```
 
 ```javascript
 // route-style
 var server = require("http").createServer()
-  , authom = require("authom")
+  , AuthPort = require("authpoint")
 
 server.on("request", function(req, res) {
-  if (req.url.slice(5) == "/auth") authom.listener(req, res)
+  if (req.url.slice(5) == "/auth") AuthPort.listener(req, res)
 
   else {
 	/* your usual server logic */
@@ -242,12 +236,12 @@ server.on("request", function(req, res) {
 server.listen(8000)
 ```
 
-### authom.registerService(serviceName, Service)
+### AuthPort.registerService(serviceName, Service)
 
-Authom-compliant services can be registered using this method. This is useful for adding custom authentication services not suited to be part of the ```/lib``` core services. (For example a business-specific in-house authentication service.) _Custom services will override existing services of the same name._
+AuthPort-compliant services can be registered using this method. This is useful for adding custom authentication services not suited to be part of the ```/lib``` core services. (For example a business-specific in-house authentication service.) _Custom services will override existing services of the same name._
 
 ```javascript
-var authom = require("authom")
+var AuthPort = require("authpoint")
   , EventEmitter = require("events").EventEmitter
 
 //Custom authentication service
@@ -267,7 +261,7 @@ var IpAuth = function(options) {
   return server
 }
 
-authom.registerService("ip-auth", IpAuth)
+AuthPort.registerService("ip-auth", IpAuth)
 
 auth.createServer({
   service: "ip-auth",
@@ -275,11 +269,11 @@ auth.createServer({
 })
 ```
 
-### authom.route
+### AuthPort.route
 
-A regular expression that is run on the pathname of every request. authom will only run if this expression is matched. By default, it is `/^\/auth\/([^\/]+)\/?$/`.
+A regular expression that is run on the pathname of every request. AuthPort will only run if this expression is matched. By default, it is `/^\/auth\/([^\/]+)\/?$/`.
 
-### authom.app
+### AuthPort.app
 
 This is a convenience Express app, which should be mounted at a path containing a `:service` parameter.
 
@@ -298,7 +292,7 @@ Options:
 Example:
 
 ```javascript
-var signals = authom.createServer({
+var signals = AuthPort.createServer({
   service: "37signals",
   id: "c2098292571a03070eb12746353997fb8d6f0e00",
   secret: "4cb7f46fa83f73ec99d37162b946522b9e7a4d5a"
@@ -317,7 +311,7 @@ Options:
 Example:
 
 ```javascript
-var dropbox = authom.createServer({
+var dropbox = AuthPort.createServer({
   service: "dropbox",
   id: "zuuteb2w7i82mdg",
   secret: "rj503lgqodxzvbp"
@@ -337,7 +331,7 @@ Options:
 Example:
 
 ```javascript
-var dwolla = authom.createServer({
+var dwolla = AuthPort.createServer({
   service: "dwolla",
   id: "0vNUP/9/GSBXEv69nqKZVfhSZbw8XQdnDiatyXSTM7vW1WzAAU",
   secret: "KI2tdLiRZ813aclUxTgUVyDbxysoJQzPBjHTJ111nHMNdAVlcs",
@@ -357,7 +351,7 @@ Options:
 Example:
 
 ```javascript
-var facebook = authom.createServer({
+var facebook = AuthPort.createServer({
   service: "facebook",
   id: "256546891060909",
   secret: "e002572fb07423fa66fc38c25c9f49ad",
@@ -377,7 +371,7 @@ Options:
 Example:
 
 ```javascript
-var fitbit = authom.createServer({
+var fitbit = AuthPort.createServer({
   service: "fitbit",
   id: "45987d27b0e14780bb1a6f1769e679dd",
   secret: "3d403aaeb5b84bc49e98ef8b946a19d5"
@@ -395,7 +389,7 @@ Options:
 Example:
 
 ```javascript
-var foodspotting = authom.createServer({
+var foodspotting = AuthPort.createServer({
   service: "foodspotting",
   id: "<api key>",
   secret: "<api secret>"
@@ -413,7 +407,7 @@ Options:
 Example:
 
 ```javascript
-var foursquare = authom.createServer({
+var foursquare = AuthPort.createServer({
   service: "foursquare",
   id: "0DPGLE430Y2LFUCOSFXB0ACG3GGD5DNHH5335FLT4US1QDAZ",
   secret: "WLNCAVFHCMQGVYOZTNOLPXW0XL2KN0DRD1APOA45SRGEZSGK"
@@ -437,7 +431,7 @@ Options:
 Example:
 
 ```javascript
-var github = authom.createServer({
+var github = AuthPort.createServer({
   service: "github",
   id: "7e38d12b740a339b2d31",
   secret: "116e41bd4cd160b7fae2fe8cc79c136a884928c3",
@@ -459,7 +453,7 @@ Options:
 Example:
 
 ```javascript
-var bitbucket = authom.createServer({
+var bitbucket = AuthPort.createServer({
   service: "bitbucket",
   id: "Fs7WNJSqgUSL8zBAZD",
   secret: "yNTv52kS7DWSztpLgbLWKD2AaNxGq2mB",
@@ -479,7 +473,7 @@ Options:
 Example:
 
 ```javascript
-var google = authom.createServer({
+var google = AuthPort.createServer({
   service: "google",
   id: "515913292583.apps.googleusercontent.com",
   secret: "UAjUGd_MD9Bkho-kazmJ5Icm",
@@ -498,7 +492,7 @@ Options:
 Example:
 
 ```javascript
-var gowalla = authom.createServer({
+var gowalla = AuthPort.createServer({
   service: "gowalla",
   id: "b8514b75c2674916b77c9a913783b9c2",
   secret: "34f713fdd6b4488982328487f443bd6d"
@@ -519,7 +513,7 @@ Options:
 Example:
 
 ```javascript
-var instagram = authom.createServer({
+var instagram = AuthPort.createServer({
   service: "instagram",
   id: "e55497d0ebc24289aba4e715f1ab7d2a",
   secret: "a0e7064bfda64e57a46dcdba48378776"
@@ -539,7 +533,7 @@ Options:
 Example:
 
 ```javascript
-var reddit = authom.createServer({
+var reddit = AuthPort.createServer({
   service: "reddit",
   id: "hG5c04ZOk0UngQ",
   secret: "mdJoGP4ayA9M7NdBiKxZUyewz7M",
@@ -559,7 +553,7 @@ Options:
 Example:
 
 ```javascript
-var soundcloud = authom.createServer({
+var soundcloud = AuthPort.createServer({
   service: "soundcloud",
   id: "9e5e7b0a891b4a2b13aeae9e5b0c89bb",
   secret: "2f4df63c8ff10f466685c305e87eba6f"
@@ -580,7 +574,7 @@ Options:
 Example:
 
 ```javascript
-var trello = authom.createServer({
+var trello = AuthPort.createServer({
   service: "trello",
   id: "LwjCfHAugMghuYtHLS9Ugw",
   secret: "etam3XHqDSDPceyHti6tRQGoywiISY0vZWfzhQUxGL4",
@@ -601,7 +595,7 @@ Options:
 Example:
 
 ```javascript
-var twitter = authom.createServer({
+var twitter = AuthPort.createServer({
   service: "twitter",
   id: "LwjCfHAugMghuYtHLS9Ugw",
   secret: "etam3XHqDSDPceyHti6tRQGoywiISY0vZWfzhQUxGL4"
@@ -623,7 +617,7 @@ Options:
 Example:
 
 ```javascript
-var vkontakte = authom.createServer({
+var vkontakte = AuthPort.createServer({
   service: "vkontakte",
   id: "3793488",
   secret: "jZnIeU4nnQfqM5mfjkK0",
@@ -644,7 +638,7 @@ Options:
 Example:
 
 ```javascript
-var windowslive = authom.createServer({
+var windowslive = AuthPort.createServer({
   service: "windowslive",
   id: "000000004C06BA3A",
   secret: "2RsIhweMq6PxR8jc5CjTVoCqTvKZmctY",
@@ -666,7 +660,7 @@ Options:
 Example:
 
 ```javascript
-var linkedin = authom.createServer({
+var linkedin = AuthPort.createServer({
   service: "linkedin",
   id: "AsjCfHAugMghuYtHLS9Xzy",
   secret: "arom3XHqDSDPceyHti6tRQGoywiISY0vZWfzhQUxXZ5"
@@ -674,7 +668,7 @@ var linkedin = authom.createServer({
 ```
 
 
-Extending authom
+Extending AuthPort
 -----------------
 
 To add an authentication service provider, add a javascript file for the service at the path `/lib/services/<service-name>.js`. This file should `module.exports` a constructor that returns an EventEmitter that listens for `request` events, and emits `auth` and `error` events to itself.

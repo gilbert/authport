@@ -1,22 +1,23 @@
 {
   "author": "Jed Schmidt <tr@nslator.jp> (http://jed.is)",
-  "name": "authom",
+  "name": "authport",
   "description": "A dependency-free multi-service authentication tool for node.js",
-  "version": "0.4.36",
+  "version": "1.0.0",
   "keywords": [
     "auth",
     "authorization",
     "oauth",
     "http"
   ],
-  "homepage": "https://github.com/jed/authom",
+  "homepage": "https://github.com/mindeavor/authport",
   "contributors": [
-    "Mark Lussier <mlussier@gmail.com> (https://github.com/intabulas)"
+    "Mark Lussier <mlussier@gmail.com> (https://github.com/intabulas)",
+    "Gilbert <gilbertbgarza@gmail.com> (https://github.com/mindeavor)"
   ],
-  "main": "./lib/authom",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jed/authom.git"
+    "url": "git://github.com/mindeavor/authport.git"
   },
   "engines": {
     "node": ">=0.6.15"
