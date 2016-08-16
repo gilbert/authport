@@ -15,7 +15,7 @@ To install, enter:
 Example
 -------
 
-    $ npm install --save auth-port
+    $ npm install --save authport
 
 For the built-in node.js HTTP module:
 
