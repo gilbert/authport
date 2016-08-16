@@ -54,7 +54,7 @@ For Express/Connect:
 ```javascript
 var express = require("express")
   , app = express()
-  , AuthPort = require("authpoint")
+  , AuthPort = require("authport")
 
 // create servers for the services you'll be using
 AuthPort.createServer({ /* facebook credentials */ })
