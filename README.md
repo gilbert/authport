@@ -52,7 +52,7 @@ For Express/Connect:
 ```javascript
 var express = require("express")
   , app = express()
-  , AuthPort = require("authpoint")
+  , AuthPort = require("authport")
 
 // create servers for the services you'll be using
 AuthPort.createServer({ /* facebook credentials */ })
@@ -211,7 +211,7 @@ A standard node.js listener. This can be used for more control over the path at 
 ```javascript
 // socket.io-style
 var server = require("http").createServer()
-  , AuthPort = require("authpoint")
+  , AuthPort = require("authport")
 
 server.on("request", function() {
   /* your usual server logic */
@@ -224,7 +224,7 @@ server.listen(8000)
 ```javascript
 // route-style
 var server = require("http").createServer()
-  , AuthPort = require("authpoint")
+  , AuthPort = require("authport")
 
 server.on("request", function(req, res) {
   if (req.url.slice(5) == "/auth") AuthPort.listener(req, res)
@@ -242,7 +242,7 @@ server.listen(8000)
 AuthPort-compliant services can be registered using this method. This is useful for adding custom authentication services not suited to be part of the ```/lib``` core services. (For example a business-specific in-house authentication service.) _Custom services will override existing services of the same name._
 
 ```javascript
-var AuthPort = require("authpoint")
+var AuthPort = require("authport")
   , EventEmitter = require("events").EventEmitter
 
 //Custom authentication service
