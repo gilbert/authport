@@ -10,7 +10,7 @@ Installation
 
 To install, enter:
 
-    $ npm install --save auth-port
+    $ npm install --save authport
 
 Example
 -------
