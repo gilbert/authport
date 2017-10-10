@@ -167,7 +167,7 @@ github.on("auth", function(req, res, gitHubSpecificData){})
 github.on("error", function(req, res, gitHubSpecificData){})
 ```
 
-Or, use this to listen to events from all provders, since AuthPort already listens and namespaces them for you:
+Or, use this to listen to events from all providers, since AuthPort already listens and namespaces them for you:
 
 ```javascript
 AuthPort.on("auth", function(req, res, data){})
